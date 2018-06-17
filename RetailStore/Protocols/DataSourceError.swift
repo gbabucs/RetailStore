@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+enum DataSourceError: Error {
+    case sectionsEmpty
+    case sectionNotRequired
+    case sectionIndexOutOfBounds
+    case itemsEmpty
+    case itemIndexOutOfBounds
+}

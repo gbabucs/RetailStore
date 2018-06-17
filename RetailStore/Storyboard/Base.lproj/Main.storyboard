@@ -13,7 +13,7 @@
         <!--List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ListViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="RetailStore" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="name" destination="6Ml-wr-4rv" id="gma-uK-fNx"/>
-                                            <segue destination="O5r-RA-av7" kind="show" id="csv-Bq-w83"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -66,7 +65,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Hmh-MT-Knu"/>
                     <connections>
-                        <outlet property="tableView" destination="6bb-1P-oEW" id="HMp-Ya-UoN"/>
+                        <outlet property="tableView" destination="6bb-1P-oEW" id="EP3-7G-Cd6"/>
+                        <segue destination="O5r-RA-av7" kind="show" identifier="showProductDetailViewController" id="2wV-CC-24H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -76,12 +76,12 @@
         <!--Product Detail View Controller-->
         <scene sceneID="bZm-iU-jIR">
             <objects>
-                <viewController id="O5r-RA-av7" customClass="ProductDetailViewController" customModule="RetailStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailViewController" id="O5r-RA-av7" customClass="ProductDetailViewController" customModule="RetailStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O2N-Oi-AQc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jDp-dE-1RB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jDp-dE-1RB">
                                 <rect key="frame" x="83" y="224" width="209" height="218"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="209" id="jUq-3X-p0Q"/>
@@ -89,7 +89,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNd-Or-wiB">
-                                <rect key="frame" x="166" y="153" width="44" height="21"/>
+                                <rect key="frame" x="166" y="84" width="44" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -104,9 +104,12 @@
                                 <state key="normal" title="Add to Cart">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addToCartWithSender:" destination="O5r-RA-av7" eventType="touchUpInside" id="NsY-9u-WXe"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZG3-0p-RTD">
-                                <rect key="frame" x="166" y="492" width="44" height="21"/>
+                                <rect key="frame" x="166" y="564" width="44" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -115,14 +118,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jXh-8P-mzF" firstAttribute="bottom" secondItem="n68-sP-FrL" secondAttribute="bottom" id="5eG-Lb-1t1"/>
+                            <constraint firstItem="tNd-Or-wiB" firstAttribute="top" secondItem="n68-sP-FrL" secondAttribute="top" constant="20" id="8ir-of-dbx"/>
                             <constraint firstItem="jDp-dE-1RB" firstAttribute="centerY" secondItem="O2N-Oi-AQc" secondAttribute="centerY" id="YGd-71-4IN"/>
+                            <constraint firstItem="jXh-8P-mzF" firstAttribute="top" secondItem="ZG3-0p-RTD" secondAttribute="bottom" constant="30" id="bu9-O6-5C9"/>
                             <constraint firstItem="jXh-8P-mzF" firstAttribute="leading" secondItem="n68-sP-FrL" secondAttribute="leading" id="dcP-Jc-mWJ"/>
                             <constraint firstItem="ZG3-0p-RTD" firstAttribute="centerX" secondItem="jDp-dE-1RB" secondAttribute="centerX" id="i77-UG-CBd"/>
                             <constraint firstItem="jDp-dE-1RB" firstAttribute="centerX" secondItem="tNd-Or-wiB" secondAttribute="centerX" id="jPa-UO-Lf6"/>
                             <constraint firstItem="jDp-dE-1RB" firstAttribute="centerX" secondItem="O2N-Oi-AQc" secondAttribute="centerX" id="mam-Mk-owo"/>
                             <constraint firstItem="jXh-8P-mzF" firstAttribute="trailing" secondItem="n68-sP-FrL" secondAttribute="trailing" id="phV-65-mSt"/>
-                            <constraint firstItem="jDp-dE-1RB" firstAttribute="top" secondItem="tNd-Or-wiB" secondAttribute="bottom" constant="50" id="w9f-fc-NA4"/>
-                            <constraint firstItem="ZG3-0p-RTD" firstAttribute="top" secondItem="jDp-dE-1RB" secondAttribute="bottom" constant="50" id="yyW-2k-TwU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n68-sP-FrL"/>
                     </view>
@@ -140,14 +143,13 @@
         <!--Cart View Controller-->
         <scene sceneID="nHO-RH-hOg">
             <objects>
-                <viewController id="5qD-4D-8QI" customClass="CartViewController" customModule="RetailStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CartViewController" id="5qD-4D-8QI" customClass="CartViewController" customModule="RetailStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pv2-yK-Ict">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QRm-6R-jPa">
-                                <rect key="frame" x="0.0" y="28" width="375" height="574"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="145" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QRm-6R-jPa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="544"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartTableViewCell" rowHeight="145" id="Mhs-B6-r67" customClass="CartTableViewCell" customModule="RetailStore" customModuleProvider="target">
@@ -157,7 +159,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="144.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9uW-9q-Flr">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9uW-9q-Flr">
                                                     <rect key="frame" x="15" y="7.5" width="130" height="130"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="130" id="OIF-lq-E53"/>
@@ -195,19 +197,45 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5qD-4D-8QI" id="cJY-Mx-0Ir"/>
+                                    <outlet property="delegate" destination="5qD-4D-8QI" id="nLM-iq-Rnm"/>
+                                </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g0-FS-Vdy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g0-FS-Vdy">
                                 <rect key="frame" x="0.0" y="610" width="375" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="gyf-zf-T4p"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoI-BO-wu2">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="Cart" id="Zry-zM-U1c"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QRm-6R-jPa" firstAttribute="leading" secondItem="zTD-OW-zO5" secondAttribute="leading" id="63k-LT-bMb"/>
+                            <constraint firstItem="QRm-6R-jPa" firstAttribute="top" secondItem="xoI-BO-wu2" secondAttribute="bottom" id="7Ga-4v-7qC"/>
+                            <constraint firstItem="9g0-FS-Vdy" firstAttribute="trailing" secondItem="zTD-OW-zO5" secondAttribute="trailing" id="8H7-NJ-tbo"/>
+                            <constraint firstItem="xoI-BO-wu2" firstAttribute="leading" secondItem="zTD-OW-zO5" secondAttribute="leading" id="AQF-3x-dSX"/>
+                            <constraint firstItem="9g0-FS-Vdy" firstAttribute="top" secondItem="QRm-6R-jPa" secondAttribute="bottom" constant="2" id="C3c-gA-LFJ"/>
+                            <constraint firstItem="QRm-6R-jPa" firstAttribute="trailing" secondItem="zTD-OW-zO5" secondAttribute="trailing" id="CO1-Xq-zyZ"/>
+                            <constraint firstItem="9g0-FS-Vdy" firstAttribute="leading" secondItem="zTD-OW-zO5" secondAttribute="leading" id="MIE-JO-eZs"/>
+                            <constraint firstItem="xoI-BO-wu2" firstAttribute="trailing" secondItem="zTD-OW-zO5" secondAttribute="trailing" id="j7i-Yx-2DA"/>
+                            <constraint firstItem="xoI-BO-wu2" firstAttribute="top" secondItem="zTD-OW-zO5" secondAttribute="top" id="tJ0-Rp-Y4b"/>
+                            <constraint firstItem="9g0-FS-Vdy" firstAttribute="bottom" secondItem="zTD-OW-zO5" secondAttribute="bottom" id="xgV-Xm-l3y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zTD-OW-zO5"/>
                     </view>
                     <connections>
+                        <outlet property="navigationBar" destination="xoI-BO-wu2" id="0dE-Ut-ew2"/>
                         <outlet property="tableView" destination="QRm-6R-jPa" id="LAe-pk-tS8"/>
                         <outlet property="totalPrice" destination="9g0-FS-Vdy" id="9x2-c3-t7u"/>
                     </connections>

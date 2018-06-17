@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+enum CategoryType: String {
+    case electronics = "Electronics"
+    case furniture = "Furniture"
+    
+    var title: String {
+        return "\(self.rawValue)"
+    }
+
+}

@@ -7,3 +7,24 @@
 //
 
 import Foundation
+
+struct ProductListSection {
+    var index: Int
+    var id: String
+    var type: CategoryType?
+}
+
+// MARK: - Sectionable
+
+extension ProductListSection: Sectionable {}
+
+// MARK: - CustomStringConvertible
+
+extension ProductListSection: CustomStringConvertible {
+    
+    // MARK: Properties
+    
+    var description: String {
+        return ""
+    }
+}

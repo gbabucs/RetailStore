@@ -1,5 +1,5 @@
 //
-//  Product.swift
+//  ProductDetail.swift
 //  RetailStore
 //
 //  Created by Babu Gangatharan on 6/17/18.
@@ -9,10 +9,12 @@
 import Foundation
 import UIKit
 
-struct Product {
+struct ProductDetail {
     var id: String?
     var name: String?
     var price: Double?
     var image: UIImage?
-    var category : String
+    var category : String?
+    var quantity: Int32? = 0
+    var isAddedToCart: Bool = false
 }

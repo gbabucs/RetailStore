@@ -13,7 +13,7 @@ import CoreData
 
 extension Product {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Product> {
+    @nonobjc public class func fetchProductRequest() -> NSFetchRequest<Product> {
         return NSFetchRequest<Product>(entityName: "Product")
     }
 
@@ -22,5 +22,7 @@ extension Product {
     @NSManaged public var image: NSData?
     @NSManaged public var name: String?
     @NSManaged public var price: Double
+    @NSManaged public var isAddedToCart: Bool
+    @NSManaged public var quantity: Int32
 
 }

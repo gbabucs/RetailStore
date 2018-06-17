@@ -9,16 +9,19 @@
 import UIKit
 
 class ListTableViewCell: UITableViewCell {
+    
+    // MARK: - IBOutlet
+    
+    @IBOutlet weak var name: UILabel!
+}
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+// MARK: - Cell
+
+extension ListTableViewCell: Cell {
+    typealias DataType = ProductListItem
+    
+    func configure(with item: ProductListItem) {
+        name.text = item.productDetail?.name
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
 }
