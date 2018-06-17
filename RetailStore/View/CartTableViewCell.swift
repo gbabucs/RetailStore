@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReusableFramework
 
 class CartTableViewCell: UITableViewCell {
     

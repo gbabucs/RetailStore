@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ReusableFramework
 
 struct ProductListSection {
     var index: Int
