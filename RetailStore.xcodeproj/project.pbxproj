@@ -96,7 +96,7 @@
 		E7D3B41220D63527006F9723 /* RetailStore */ = {
 			isa = PBXGroup;
 			children = (
-				E7D3B45920D6C6A1006F9723 /* Extensio */,
+				E7D3B45920D6C6A1006F9723 /* Extension */,
 				E7D3B44A20D6AA98006F9723 /* MockData */,
 				E7D3B44120D6A008006F9723 /* DataSource */,
 				E7D3B44020D69F68006F9723 /* Storyboard */,
@@ -199,12 +199,12 @@
 			path = MockData;
 			sourceTree = "<group>";
 		};
-		E7D3B45920D6C6A1006F9723 /* Extensio */ = {
+		E7D3B45920D6C6A1006F9723 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				E7D3B45A20D6C6BE006F9723 /* UIViewControllerExtension.swift */,
 			);
-			path = Extensio;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
